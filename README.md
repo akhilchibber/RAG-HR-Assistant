@@ -20,7 +20,9 @@ The goal is to develop a Q&A system capable of delivering informed responses on 
 
 ## Functionality
 The system retrieves information from Supabase based on employee queries about HR policies, then uses Groq LLM to generate responses. This ensures accuracy and broader contextual understanding, resulting in precise and enriched answers grounded in actual company policy documents.
-https://github.com/akhilchibber/RAG-based-AI-Powered-HR-Assistant/blob/main/hr-assistant.jpg
+<p align="center">
+  <img src="https://github.com/akhilchibber/RAG-based-AI-Powered-HR-Assistant/blob/main/hr-assistant.jpg?raw=true" alt="earthml Logo">
+</p>
 
 ## Use Case
 Ideal for HR departments, employees, and organizations seeking to streamline HR query resolution through natural language interfaces. It showcases how retrieval and generation can be integrated in NLP to improve information access, reduce HR workload, and enhance employee experience in understanding company policies.
