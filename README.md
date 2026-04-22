@@ -13,10 +13,10 @@ The goal is to develop a Q&A system capable of delivering informed responses on 
 ## Key Components
 
 - **Groq LLM**: Employs llama-3.3-70b-versatile for generating text responses that mimic human conversation.
-- **Supabase**: Acts as a vector database for storing and retrieving HR policy data semantically.
-- **Sentence Transformers**: Generates semantic embeddings for policy document chunks.
+- **Supabase**: Acts as a vector database (with pgvector extension) for storing and retrieving HR policy data semantically.
+- **Google AI Studio**: Generates semantic embeddings for policy document chunks using Google's embedding models.
 - **LangChain**: Orchestrates the interaction between components, facilitating the RAG process.
-- **Azure OpenAI**: Provides embeddings and advanced language understanding capabilities.
+- **React Frontend**: Provides an intuitive chat interface for employees to query HR policies in natural language.
 
 ## Functionality
 

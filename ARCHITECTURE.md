@@ -9,7 +9,7 @@ This document describes the architecture of the RAG-based AI Powered HR Assistan
 ### 1. Document Ingestion Layer
 - HR policy documents are uploaded and processed
 - Documents are chunked into meaningful paragraphs
-- Chunks are converted into vector embeddings using Sentence Transformers or Azure OpenAI
+- Chunks are converted into vector embeddings using Google AI Studio embeddings API
 
 ### 2. Vector Database (Supabase + pgvector)
 - Stores all policy document chunks and their embeddings
@@ -38,7 +38,7 @@ This document describes the architecture of the RAG-based AI Powered HR Assistan
 ```
 User Query
     ↓
-Query Embedding (Sentence Transformers)
+Query Embedding (Google AI Studio)
     ↓
 Semantic Search (Supabase pgvector)
     ↓
