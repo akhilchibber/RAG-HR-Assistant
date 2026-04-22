@@ -1,0 +1,120 @@
+<svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+    </marker>
+    <marker id="arrowhead-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#06b6d4" />
+    </marker>
+    <marker id="arrowhead-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+    </marker>
+    <marker id="arrowhead-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b" />
+    </marker>
+    <marker id="arrowhead-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6" />
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Supabase boundary wrapping Edge Function + Postgres -->
+  <rect x="390" y="90" width="340" height="420" rx="12" fill="rgba(16, 185, 129, 0.04)" stroke="#10b981" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="406" y="112" fill="#10b981" font-size="11" font-weight="600">Supabase</text>
+
+  <!-- CONNECTION ARROWS -->
+
+  <!-- Employee → Frontend (asks) -->
+  <line x1="158" y1="300" x2="218" y2="300" stroke="#06b6d4" stroke-width="2" marker-end="url(#arrowhead-cyan)"/>
+  <text x="188" y="293" fill="#6b7280" font-size="9" text-anchor="middle">asks</text>
+
+  <!-- Frontend → Edge Function (question) -->
+  <line x1="378" y1="300" x2="438" y2="300" stroke="#06b6d4" stroke-width="2" marker-end="url(#arrowhead-cyan)"/>
+  <text x="408" y="293" fill="#6b7280" font-size="9" text-anchor="middle">question</text>
+
+  <!-- Edge Function → Postgres (retrieve) -->
+  <line x1="540" y1="372" x2="540" y2="418" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowhead-violet)"/>
+  <text x="505" y="400" fill="#6b7280" font-size="9" text-anchor="end">retrieve</text>
+
+  <!-- Postgres → Edge Function (chunks back) -->
+  <line x1="590" y1="418" x2="590" y2="372" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+  <text x="625" y="400" fill="#6b7280" font-size="9">chunks</text>
+
+  <!-- Edge Function → Google AI Studio (embed) -->
+  <line x1="680" y1="275" x2="868" y2="190" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowhead-amber)"/>
+  <text x="770" y="220" fill="#f59e0b" font-size="9" text-anchor="middle" transform="rotate(-24 770 220)">embed</text>
+
+  <!-- Edge Function → Groq (generate) -->
+  <line x1="680" y1="325" x2="868" y2="400" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowhead-amber)"/>
+  <text x="770" y="380" fill="#f59e0b" font-size="9" text-anchor="middle" transform="rotate(22 770 380)">generate</text>
+
+  <!-- Edge Function → Frontend (answer back) -->
+  <line x1="438" y1="330" x2="378" y2="330" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead-emerald)"/>
+  <text x="408" y="344" fill="#6b7280" font-size="9" text-anchor="middle">answer</text>
+
+  <!-- Frontend → Employee (reply) -->
+  <line x1="218" y1="330" x2="158" y2="330" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead-emerald)"/>
+  <text x="188" y="344" fill="#6b7280" font-size="9" text-anchor="middle">reply</text>
+
+  <!-- GitHub → Supabase (hosts source code - dashed non-runtime) -->
+  <path d="M 960 555 L 960 535 Q 960 525 950 525 L 560 525 Q 550 525 550 510" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+  <text x="755" y="518" fill="#6b7280" font-size="8" text-anchor="middle">hosts source code</text>
+
+  <!-- COMPONENTS -->
+
+  <!-- Employee -->
+  <rect x="50" y="260" width="110" height="100" rx="6" fill="#f3f4f6"/>
+  <rect x="50" y="260" width="110" height="100" rx="6" fill="rgba(243, 244, 246, 0.8)" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="105" y="302" font-size="26" text-anchor="middle">👤</text>
+  <text x="105" y="330" fill="#1f2937" font-size="12" font-weight="600" text-anchor="middle">Employee</text>
+  <text x="105" y="346" fill="#6b7280" font-size="9" text-anchor="middle">asks HR questions</text>
+
+  <!-- Frontend (React) -->
+  <rect x="220" y="260" width="160" height="100" rx="6" fill="#f0f9ff"/>
+  <rect x="220" y="260" width="160" height="100" rx="6" fill="rgba(240, 249, 255, 0.8)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="300" y="296" fill="#1f2937" font-size="13" font-weight="600" text-anchor="middle">Frontend</text>
+  <text x="300" y="314" fill="#6b7280" font-size="10" text-anchor="middle">React chat demo</text>
+  <text x="300" y="340" fill="#06b6d4" font-size="9" text-anchor="middle">runs in browser</text>
+
+  <!-- Supabase Edge Function -->
+  <rect x="440" y="250" width="240" height="120" rx="6" fill="#f0fdf4"/>
+  <rect x="440" y="250" width="240" height="120" rx="6" fill="rgba(240, 253, 244, 0.8)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="560" y="288" fill="#1f2937" font-size="13" font-weight="600" text-anchor="middle">Supabase Edge Function</text>
+  <text x="560" y="308" fill="#6b7280" font-size="10" text-anchor="middle">the brain</text>
+  <text x="560" y="334" fill="#6b7280" font-size="9" text-anchor="middle">receives question,</text>
+  <text x="560" y="348" fill="#6b7280" font-size="9" text-anchor="middle">fetches context,</text>
+  <text x="560" y="362" fill="#6b7280" font-size="9" text-anchor="middle">returns answer</text>
+
+  <!-- Supabase Postgres + pgvector -->
+  <rect x="440" y="420" width="240" height="80" rx="6" fill="#faf5ff"/>
+  <rect x="440" y="420" width="240" height="80" rx="6" fill="rgba(250, 245, 255, 0.8)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="560" y="450" fill="#1f2937" font-size="13" font-weight="600" text-anchor="middle">Postgres + pgvector</text>
+  <text x="560" y="470" fill="#6b7280" font-size="10" text-anchor="middle">stores HR policy chunks</text>
+  <text x="560" y="488" fill="#8b5cf6" font-size="9" text-anchor="middle">semantic search</text>
+
+  <!-- Google AI Studio (top-right) -->
+  <rect x="870" y="150" width="180" height="80" rx="6" fill="#fffbeb"/>
+  <rect x="870" y="150" width="180" height="80" rx="6" fill="rgba(255, 251, 235, 0.8)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="960" y="180" fill="#1f2937" font-size="13" font-weight="600" text-anchor="middle">Google AI Studio</text>
+  <text x="960" y="200" fill="#6b7280" font-size="10" text-anchor="middle">embeddings</text>
+  <text x="960" y="218" fill="#f59e0b" font-size="9" text-anchor="middle">turns text into vectors</text>
+
+  <!-- Groq (middle-right) -->
+  <rect x="870" y="370" width="180" height="80" rx="6" fill="#fffbeb"/>
+  <rect x="870" y="370" width="180" height="80" rx="6" fill="rgba(255, 251, 235, 0.8)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="960" y="400" fill="#1f2937" font-size="13" font-weight="600" text-anchor="middle">Groq</text>
+  <text x="960" y="420" fill="#6b7280" font-size="10" text-anchor="middle">LLM</text>
+  <text x="960" y="438" fill="#f59e0b" font-size="9" text-anchor="middle">writes the final answer</text>
+
+  <!-- GitHub (bottom-right) -->
+  <rect x="870" y="555" width="180" height="60" rx="6" fill="#f3f4f6"/>
+  <rect x="870" y="555" width="180" height="60" rx="6" fill="rgba(243, 244, 246, 0.8)" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="960" y="580" fill="#1f2937" font-size="13" font-weight="600" text-anchor="middle">GitHub</text>
+  <text x="960" y="600" fill="#6b7280" font-size="10" text-anchor="middle">source code</text>
+</svg>
