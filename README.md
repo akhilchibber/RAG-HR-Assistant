@@ -57,4 +57,4 @@ Author: Akhil Chhibber
 
 LinkedIn: https://www.linkedin.com/in/akhilchhibber/  
 Medium Blogs: https://medium.com/@akhil.chibber  
-Live Demo: https://akhilchibber.github.io/RAG-based-AI-Powered-HR-Assistant/
+Live Demo: https://akhilchibber.github.io/RAG-HR-Assistant/
