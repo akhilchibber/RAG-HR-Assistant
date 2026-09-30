@@ -67,3 +67,6 @@ yarn-error.log
 # Build outputs
 dist/
 build/
+
+# Supabase CLI local metadata
+supabase/.temp/
