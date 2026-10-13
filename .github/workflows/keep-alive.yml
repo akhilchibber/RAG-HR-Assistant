@@ -16,19 +16,14 @@ jobs:
         run: |
           echo "Pinging Supabase project certshare (whtggoqezzijocarqavj)..."
 
-          RESPONSE=$(curl --silent --show-error --fail \
+          HTTP_STATUS=$(curl --silent --output /dev/null \
+            --write-out "%{http_code}" \
             --request GET \
-            --url "${{ secrets.SUPABASE_URL }}/rest/v1/hr_chunks?select=id&limit=1" \
+            --url "${{ secrets.SUPABASE_URL }}/rest/v1/" \
             --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
-            --header "Content-Type: application/json" \
-            --write-out "\nHTTP_STATUS:%{http_code}")
-
-          HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_STATUS:" | cut -d: -f2)
-          BODY=$(echo "$RESPONSE" | grep -v "HTTP_STATUS:")
+            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
 
           echo "HTTP Status: $HTTP_STATUS"
-          echo "Response: $BODY"
 
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
             echo "✅ Supabase ping successful — project is active."
