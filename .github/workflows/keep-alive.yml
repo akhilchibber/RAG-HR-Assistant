@@ -19,9 +19,8 @@ jobs:
           HTTP_STATUS=$(curl --silent --output /dev/null \
             --write-out "%{http_code}" \
             --request GET \
-            --url "${{ secrets.SUPABASE_URL }}/rest/v1/" \
-            --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+            --url "${{ secrets.SUPABASE_URL }}/auth/v1/health" \
+            --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}")
 
           echo "HTTP Status: $HTTP_STATUS"
 
