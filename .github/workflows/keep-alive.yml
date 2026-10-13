@@ -1,0 +1,38 @@
+name: Supabase Keep-Alive Ping
+
+on:
+  schedule:
+    # Runs every 2 days at 08:00 UTC (every other day)
+    - cron: '0 8 */2 * *'
+  workflow_dispatch: # Allow manual trigger from GitHub Actions UI
+
+jobs:
+  ping:
+    name: Ping Supabase to prevent free-tier pause
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send keep-alive query to Supabase
+        run: |
+          echo "Pinging Supabase project certshare (whtggoqezzijocarqavj)..."
+
+          RESPONSE=$(curl --silent --show-error --fail \
+            --request GET \
+            --url "${{ secrets.SUPABASE_URL }}/rest/v1/hr_chunks?select=id&limit=1" \
+            --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "Content-Type: application/json" \
+            --write-out "\nHTTP_STATUS:%{http_code}")
+
+          HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_STATUS:" | cut -d: -f2)
+          BODY=$(echo "$RESPONSE" | grep -v "HTTP_STATUS:")
+
+          echo "HTTP Status: $HTTP_STATUS"
+          echo "Response: $BODY"
+
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "✅ Supabase ping successful — project is active."
+          else
+            echo "❌ Ping failed with status $HTTP_STATUS"
+            exit 1
+          fi
